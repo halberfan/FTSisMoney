@@ -1,0 +1,6 @@
+main: de.afgmedia.ftsismoney.main.FTS
+version: 1.0
+name: FTSisMoney
+
+commands:
+    money:
