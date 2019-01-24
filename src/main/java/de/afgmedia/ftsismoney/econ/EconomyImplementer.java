@@ -8,6 +8,8 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class EconomyImplementer implements Economy {
 
@@ -59,6 +61,9 @@ public class EconomyImplementer implements Economy {
 
     @Override
     public boolean hasAccount(OfflinePlayer offlinePlayer) {
+        if(offlinePlayer == null) {
+            Logger.getLogger("Minecraft").log(Level.WARNING, "OfflinePlayer is null (EconomyImplementer:63 #hasAccount)");
+        }
         return plugin.getAccounts().containsKey(offlinePlayer.getName());
     }
 

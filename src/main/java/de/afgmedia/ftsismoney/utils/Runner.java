@@ -17,8 +17,10 @@ public class Runner implements Runnable {
     @Override
     public void run() {
         for (Account acc : plugin.getAccounts().values()) {
-            if (acc instanceof PlayerAccount)
-                ((PlayerAccount) acc).updateBalance();
+            if (acc instanceof PlayerAccount) {
+                if(!Bukkit.getPlayer(acc.getName()).isDead())
+                    ((PlayerAccount) acc).updateBalance();
+            }
         }
     }
 }
